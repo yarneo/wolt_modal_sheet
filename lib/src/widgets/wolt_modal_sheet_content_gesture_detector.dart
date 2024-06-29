@@ -139,25 +139,23 @@ class WoltModalSheetContentGestureDetector extends StatelessWidget {
       return;
     }
 
-    // Apply the drag update to the animation controller value
     final delta = -details.primaryDelta! / _childWidth;
     switch (_dismissDirection) {
       case WoltModalDismissDirection.startToEnd:
         if (Directionality.of(context) == TextDirection.ltr) {
-          _animationController.value += delta;
-        } else {
           _animationController.value -= delta;
+        } else {
+          _animationController.value += delta;
         }
         break;
       case WoltModalDismissDirection.endToStart:
         if (Directionality.of(context) == TextDirection.ltr) {
-          _animationController.value -= delta;
-        } else {
           _animationController.value += delta;
+        } else {
+          _animationController.value -= delta;
         }
         break;
       default:
-        _animationController.value += delta;
         break;
     }
   }
